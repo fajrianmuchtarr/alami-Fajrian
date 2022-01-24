@@ -23,7 +23,7 @@ public class testcase1 {
 
         Thread.sleep(3000);
 
-        //(Input Text Komputer)
+        //(Input Text Komputer+validasi value nya sudah sesuai)
 
         WebElement Value1=driver.findElement(By.id("AKCKwd"));
         
@@ -64,6 +64,7 @@ public class testcase1 {
 
         Thread.sleep(4000);
         
+        //validation apakah produk yang dipilih sudah sesuai
         if(driver.getPageSource().contains("JOYSEUS Wireless Mouse 1800DPI USB Computer 2.4GHz Mouse - MS0003")){
 
           System.out.println("Text is present");
@@ -111,7 +112,8 @@ public class testcase1 {
         driver.findElement(By.xpath("//a[contains(text(),'Ya')]")).click();
 
         Thread.sleep(2000);
-
+        
+        //validation for amount dari produk yang masuk ke keranjang
         WebElement Value2=driver.findElement(By.xpath("//form[@id='frmTmall']/table/tbody/tr/td[3]/input"));
         
         String attribute2 = Value2.getAttribute("value");
@@ -129,7 +131,7 @@ public class testcase1 {
 		    }
 
 
-
+        //button ubah kurir
         driver.findElement(By.xpath("//a[contains(text(),'Ubah Kurir')]")).click();
 
         try
@@ -141,7 +143,7 @@ public class testcase1 {
           System.out.println(e.getMessage());
         }
 
-        
+        //validation pop up message ubah kurir
         if(driver.getPageSource().contains("Anda dapat mengubah kurir/jenis pengiriman pada pilihan dibawah ini.")){
 
           System.out.println("Text is present");
@@ -172,7 +174,8 @@ public class testcase1 {
         driver.findElement(By.xpath("//a[@id='chkDelPopY']")).click();
 
         Thread.sleep(1000);
-
+        
+        //validation sudah tidak ada produk di keranjang
         if(driver.getPageSource().contains("Tidak ada produk di Shopping Cart.")){
 
           System.out.println("Text is present");
